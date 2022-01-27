@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export default function Home(): JSX.Element {
+  const a = 1;
   return (
     <div className={styles.container}>
       <Head>
@@ -44,7 +45,7 @@ export default function Home() {
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
           >
-            <h2>Deploy &rarr;</h2>
+            <h2>Deploy &rarr; {a}</h2>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
