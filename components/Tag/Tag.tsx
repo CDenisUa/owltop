@@ -8,26 +8,10 @@ export const Tag: FC<TagProps> = ({
 	color='ghost',
 	href,
 	children, 
-	...props}):JSX.Element => {
-
-	const classColor = {
-		[styles.ghost]: color == 'ghost',
-		[styles.red]: color == 'red',
-		[styles.gray]: color == 'gray',
-		[styles.green]: color == 'green',
-		[styles.primary]: color == 'primary',
-	};
-
-	const classSize = {
-		[styles.small]: size == 'small',
-		[styles.medium]: size == 'medium',
-	};
-
-	return (
-		<div
-			className={ cn(styles.tag,classColor,classSize) }
-			{...props}
-		> 
-			{ href ? <a href={href}>{children}</a> : children }
-		</div>)
-};
+	...props}):JSX.Element => (
+	<div
+		className={cn(styles.tag, styles[color], styles[size])}
+		{...props}
+	>
+		{href ? <a href={href}>{children}</a> : children}
+	</div>);
