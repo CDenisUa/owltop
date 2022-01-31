@@ -9,7 +9,6 @@ body {
 
 a {
 	text-decoration: none;
-
 	color: inherit;
 }
 
@@ -21,8 +20,10 @@ a {
 	--ASTROGRANITE_DEBRIS: #3B434E;
 	--WHITE: #FFFFFF;
 	--VENETIAN_NIGHTS:#7653FC;
+	--VENETIAN_NIGHTS_HOVER:#6344DF;
 	--FRESH_SALMON:#FC836D;
 	--TIMES_SQUARE_SCREENS:#1DC37E;
 	--SHALLOW_END: #C8F8E4;
+	--LIGHT_GRAY: #EBEBEB;
 	--NOTO_SANS_MONO: 'Noto Sans Mono', monospace;
 }

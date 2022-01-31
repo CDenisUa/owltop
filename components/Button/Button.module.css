@@ -6,4 +6,43 @@
 	text-align: center;
 	border: none;
 	border-radius: 5px;
+	font-size: 14px;
+	transition: all 0.3s;
 }
+
+.primary {
+	color: var(--WHITE);
+	background-color: var(--VENETIAN_NIGHTS);
+}
+
+.primary:hover {
+	color: var(--WHITE);
+	background-color: var(--VENETIAN_NIGHTS_HOVER);
+}
+
+.primary svg,
+.ghost:hover svg {
+	fill: var(--WHITE);
+}
+
+.ghost {
+	color: var(--ASTROGRANITE_DEBRIS);
+	background-color: none;
+	border: 1px solid var(--LIGHT_GRAY);
+}
+
+.ghost:hover {
+	color: var(--WHITE);
+	background-color: var(--VENETIAN_NIGHTS);
+}
+
+.arrow {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.down {
+	transform: rotate(90deg);
+	transition: transform 0.2s;
+}
+
