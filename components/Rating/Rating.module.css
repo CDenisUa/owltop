@@ -1,0 +1,12 @@
+.filled svg{
+    fill: var(--VENETIAN_NIGHTS);
+    cursor: pointer;
+}
+
+.star svg{
+    margin-right: 5px;
+}
+
+.editable svg{
+    cursor: pointer;
+}

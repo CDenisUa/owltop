@@ -1,8 +1,9 @@
-import { Button, Htag, Ptag, Tag } from '../components';
+import { Button, Htag, Ptag, Rating, Tag } from '../components';
+import { withLayout } from '../Layout/Layout';
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
   return (
-    <div>
+    <>
       <Htag tag='h1'>Text</Htag>
       <Button appearance='ghost'>Ghost button</Button>
       <Button appearance='ghost' arrow='right'>Ghost button</Button>
@@ -17,6 +18,9 @@ export default function Home(): JSX.Element {
       <Tag href='https://google.com' size='small' color='gray' >Just tag</Tag>
       <Tag href='https://google.com' size='medium' color='green' >Just tag</Tag>
       <Tag href='https://google.com' size='small' color='primary' >Just tag</Tag>
-    </div>
+      <Rating rating={4} isEditable={true} />
+    </>
   );
 }
+
+export default withLayout(Home);
