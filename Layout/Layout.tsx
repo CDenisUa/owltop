@@ -4,6 +4,8 @@ import { Header } from "./Header/Header";
 import { LayoutProps } from "./Layout.props";
 import { Sidebar } from "./Sidebar/Sidebar";
 import styles from "./Layout.module.css";
+import { AppContextProvider } from "../context/app-context/app.context";
+import { IAppContext } from "../context/app-context/app.context.types";
 
 const Layout: FC<LayoutProps> = ({children}) => {
     return (
@@ -18,12 +20,14 @@ const Layout: FC<LayoutProps> = ({children}) => {
     );
 };
 
-export const withLayout =<T extends Record<string, unknown>>(Component:FC<T>) => {
+export const withLayout =<T extends Record<string, unknown> & IAppContext>(Component:FC<T>) => {
     return function withLayoutComponent(props: T):JSX.Element {
         return (
-            <Layout>
-                <Component {...props} />
-            </Layout>
+            <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            </AppContextProvider>
         );
     };
 };

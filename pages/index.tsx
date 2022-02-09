@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import { Button, Htag, Ptag, Rating, Tag } from '../components';
 import { MenuItem } from '../interfaces/menu.interface';
 import { withLayout } from '../layout/Layout';
+import { Menu } from '../layout/Menu/Menu';
 
 
 function Home({menu, firstCategory}:HomeProps): JSX.Element {
@@ -23,6 +24,7 @@ function Home({menu, firstCategory}:HomeProps): JSX.Element {
       <Tag href='https://google.com' size='medium' color='green' >Just tag</Tag>
       <Tag href='https://google.com' size='small' color='primary' >Just tag</Tag>
       <Rating rating={4} isEditable={true} />
+
     </>
   );
 }
