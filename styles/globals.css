@@ -2,13 +2,16 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	color: var(--ASTROGRANITE_DEBRIS);
-	background-color: #F5F6F8;
-	font-family: 'Noto Sans Mono', monospace;
+
+	color: var(--black);
+	background: #F5F6F8;
+
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
 	text-decoration: none;
+
 	color: inherit;
 }
 
@@ -17,13 +20,14 @@ a {
 }
 
 :root {
-	--ASTROGRANITE_DEBRIS: #3B434E;
-	--WHITE: #FFFFFF;
-	--VENETIAN_NIGHTS:#7653FC;
-	--VENETIAN_NIGHTS_HOVER:#6344DF;
-	--FRESH_SALMON:#FC836D;
-	--TIMES_SQUARE_SCREENS:#1DC37E;
-	--SHALLOW_END: #C8F8E4;
-	--LIGHT_GRAY: #EBEBEB;
-	--NOTO_SANS_MONO: 'Noto Sans Mono', monospace;
+	--black: #3B434E;
+	--gray-light: #EBEBEB;
+	--gray-dark: #787D85;
+	--white: white;
+	--primary: #7653FC;
+	--primary-hover: #6344df;
+	--red: #FC836D;
+	--green: #1DC37E;
+	--green-light: #C8F8E4;
+	--font-family: 'Noto Sans KR', sans-serif;
 }

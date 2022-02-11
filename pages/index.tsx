@@ -1,50 +1,46 @@
-import axios from 'axios';
 import { GetStaticProps } from 'next';
-import { Button, Htag, Ptag, Rating, Tag } from '../components';
-import { MenuItem } from '../interfaces/menu.interface';
+import React, { useState } from 'react';
+import { Button, Htag, P, Rating, Tag } from '../components';
 import { withLayout } from '../layout/Layout';
-import { Menu } from '../layout/Menu/Menu';
+import axios from 'axios';
+import { MenuItem } from '../interfaces/menu.interface';
 
+function Home({ menu }: HomeProps): JSX.Element {
+	const [rating, setRating] = useState<number>(4);
 
-function Home({menu, firstCategory}:HomeProps): JSX.Element {
-  return (
-    <>
-      <Htag tag='h1'>Text</Htag>
-      <Button appearance='ghost'>Ghost button</Button>
-      <Button appearance='ghost' arrow='right'>Ghost button</Button>
-      <Button appearance='primary'>Primary button</Button>
-      <Button appearance='primary' arrow='down'>Primary button</Button>
-      <Ptag fontSize='small'>Small tag</Ptag>
-      <Ptag fontSize='medium'>Small medium</Ptag>
-      <Ptag fontSize='large'>Small large</Ptag>
-      <Ptag>Small default</Ptag>
-      <Tag href='https://google.com' size='small' color='ghost' >Just tag</Tag>
-      <Tag href='https://google.com' size='medium' color='red' >Just tag</Tag>
-      <Tag href='https://google.com' size='small' color='gray' >Just tag</Tag>
-      <Tag href='https://google.com' size='medium' color='green' >Just tag</Tag>
-      <Tag href='https://google.com' size='small' color='primary' >Just tag</Tag>
-      <Rating rating={4} isEditable={true} />
-
-    </>
-  );
+	return (
+		<>
+			<Htag tag='h1'>Заголовок</Htag>
+			<Button appearance='primary' arrow='right'>Кнопка</Button>
+			<Button appearance='ghost' arrow='down'>Кнопка</Button>
+			<P size='l'>Большой</P>
+			<P>Средний</P>
+			<P size='s'>Маленький</P>
+			<Tag size='s'>Ghost</Tag>
+			<Tag size='m' color='red'>Red</Tag>
+			<Tag size='s' color='green'>Green</Tag>
+			<Tag color='primary'>Green</Tag>
+			<Rating rating={rating} isEditable setRating={setRating} />
+		</>
+	);
 }
 
 export default withLayout(Home);
 
-export const getStaticProps: GetStaticProps = async () => {
-  const firstCategory = 0;
-  const {data: menu} = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
-    firstCategory,
-  });
-  return {
-    props: {
-      menu,
-      firstCategory,
-    }
-  };
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+	const firstCategory = 0;
+	const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+		firstCategory
+	});
+	return {
+		props: {
+			menu,
+			firstCategory
+		}
+	};
 };
 
 interface HomeProps extends Record<string, unknown> {
-  menu: MenuItem[],
-  firstCategory: number,
+	menu: MenuItem[];
+	firstCategory: number;
 }
